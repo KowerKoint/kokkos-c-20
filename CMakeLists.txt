@@ -16,21 +16,21 @@ else()
 endif()
 
 ### Kokko Fetch ###
-FetchContent_Declare(
-    kokkos_fetch
-    GIT_REPOSITORY https://github.com/kokkos/kokkos
-    GIT_TAG 4.2.00
-)
-FetchContent_GetProperties(kokkos_fetch)
-if(NOT kokkos_fetch_POPULATED)
-    message(STATUS "Fetch Kokkos")
-    FetchContent_Populate(kokkos_fetch)
-    add_subdirectory(${kokkos_fetch_SOURCE_DIR})
-endif(NOT kokkos_fetch_POPULATED)
+#FetchContent_Declare(
+    #kokkos_fetch
+    #GIT_REPOSITORY https://github.com/kokkos/kokkos
+    #GIT_TAG 4.2.00
+    #)
+#FetchContent_GetProperties(kokkos_fetch)
+#if(NOT kokkos_fetch_POPULATED)
+    #message(STATUS "Fetch Kokkos")
+    #FetchContent_Populate(kokkos_fetch)
+    #add_subdirectory(${kokkos_fetch_SOURCE_DIR})
+#endif(NOT kokkos_fetch_POPULATED)
+find_package(Kokkos REQUIRED)
 
 ### Copmiler options ###
 set(CMAKE_CXX_STANDARD 20)
-#add_compile_options(-std=c++20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
